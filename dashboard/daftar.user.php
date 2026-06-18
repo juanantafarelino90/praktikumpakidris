@@ -1,12 +1,12 @@
 <?php
 include '../user.php';
-include '../database.php';
+include_once '../database.php';
 
 $db = new Database();
 $conn = $db->connect();
-$user = new User($conn);
+$users = new User($conn);
 
-$result = $user->getAllUsers();
+$result = $users->getAllUsers();
 $daftar_users = [];
 
 if ($result && $result->num_rows > 0) {
@@ -30,15 +30,16 @@ if ($result && $result->num_rows > 0) {
               </thead>
               <tbody>
               <?php 
-              foreach ($daftar_users as $row) {
+              foreach ($daftar_users as $user) {
                 ?>
                 <tr> 
-                  <td><?= $row['id'] ?></td>
-                  <td><?= $row['username'] ?></td>
-                  <td><?= $row['email'] ?></td>
-                  <td><?= $row['asal'] ?></td>
+                  <td><?= $user['id'] ?></td>
+                  <td><?= $user['username'] ?></td>
+                  <td><?= $user['email'] ?></td>
+                  <td><?= $user['asal'] ?></td>
                   <td>
-                   <a href="delete_user.php?id=<?= $row['id'] ?>"> delete</a> | edit 
+                   <a href="delete_user.php?id=<?= $user['id'] ?>"> delete</a> 
+                   <a href="index.php?halaman=edit_user_form.php&id=<?php echo $user['id'] ?>"> | edit</a>
               </td>
               </tr>
                  <?php

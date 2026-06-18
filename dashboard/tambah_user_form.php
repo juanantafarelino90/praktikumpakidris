@@ -1,6 +1,18 @@
 <?php
-include '../user.php';
-include '../database.php';
+include_once '../user.php';
+include_once '../database.php';
+
+$db = new Database();
+$conn = $db->connect();
+$users = new User($conn);
+
+$result = $users->getAllUsers();
+$daftar_user = $result->fetch_all(MYSQLI_ASSOC);
+?>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          <?php
+include_once '../user.php';
+include_once '../database.php';
 
 $db = new Database();
 $conn = $db->connect();
@@ -33,4 +45,5 @@ $daftar_user = $result->fetch_all(MYSQLI_ASSOC);
                 <button type="submit" class="btn btn-primary">Tambah User</button>
             </form>
           </div>
+        </main>
         </main>
