@@ -8,6 +8,13 @@ if(!isset($_SESSION['is_logged_in'])) {
 }
 $halaman = $_GET['halaman'] ?? 'daftar.user.php';
 ?>
+<?php
+
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Juan';
+$login_count = isset($_SESSION['login_count']) ? $_SESSION['login_count'] : 0;
+?>
+
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
@@ -410,6 +417,12 @@ $halaman = $_GET['halaman'] ?? 'daftar.user.php';
             </div>
           </div>
         </div>
+
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">
+            <div class="alert alert-succsess" role="alert">
+               Selamat Datang <b><?php echo $username; ?></b>, Anda telah login sebanyak <?php echo $login_count; ?> kali
+            </div>
+      </div>
         <?php
           include $halaman; 
           ?>

@@ -15,6 +15,11 @@ if ($result && $result->num_rows > 0) {
 ?>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 <h1>Daftar User</h1>
+
+<div class="alert alert-success mt-3" role="alert" style="background-color: #d1e7dd; color: #0f5132; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+    Selamat Datang <strong><?php echo htmlspecialchars($username); ?></strong>, Anda telah login sebanyak <?php echo $login_count; ?> kali
+</div>
+
 <hr />
 <a href="index.php?halaman=tambah_user_form.php" class="btn btn-primary mb-3">Tambah User</a>
           <div class="table-responsive small">
