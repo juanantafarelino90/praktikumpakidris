@@ -417,11 +417,6 @@ $login_count = isset($_SESSION['login_count']) ? $_SESSION['login_count'] : 0;
             </div>
           </div>
         </div>
-
-        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">
-            <div class="alert alert-succsess" role="alert">
-               Selamat Datang <b><?php echo $username; ?></b>, Anda telah login sebanyak <?php echo $login_count; ?> kali
-            </div>
       </div>
         <?php
           include $halaman; 
